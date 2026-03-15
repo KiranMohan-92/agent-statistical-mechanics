@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "autonomy": "interactive",
+  "research_mode": "standard",
+  "planning": {
+    "commit_docs": true,
+    "use_plan_checker": true,
+    "use_phase_researcher": true,
+    "inter_wave_verification": "auto"
+  },
+  "execution": {
+    "parallel_waves": true,
+    "use_executor": true,
+    "use_verifier": true
+  },
+  "model_profile": "deep-theory",
+  "tier_models": {
+    "tier-1": null,
+    "tier-2": null,
+    "tier-3": null
+  },
+  "git": {
+    "auto_commit": true,
+    "commit_message_format": "{type}: {description}"
+  },
+  "project": {
+    "name": "Statistical Mechanics of Multi-Agent Systems",
+    "created": "2026-03-16",
+    "phases": 10,
+    "current_phase": 1
+  }
+}
