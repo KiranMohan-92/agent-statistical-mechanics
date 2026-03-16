@@ -33,7 +33,7 @@ Derive first-principles limits on optimal agent scaling in LLM-based multi-agent
 **Depends on:** Nothing (first phase)
 
 **Plans:**
-- [ ] 01-01: Literature survey on statistical mechanics of multi-agent systems
+- [ ] 01-01-PLAN.md -- Literature survey on statistical mechanics of multi-agent systems (5 tasks: survey, mapping, Yang retrieval, known/open, framework confirmation)
 
 **Contract Coverage:**
 - Gathers context for DERV-01 derivation
@@ -176,28 +176,29 @@ Derive first-principles limits on optimal agent scaling in LLM-based multi-agent
 
 ---
 
-### Phase 7: ING Systems Validation
+### Phase 7: Public AML Agent Systems Validation
 
-**Goal:** Test theoretical predictions against 38-jurisdiction AML deployment data
+**Goal:** Test theoretical predictions against publicly available financial crime detection AI agent data
 
 **Requirements:** VALD-03
 
 **Success Criteria:**
-1. ING AML data extracted from 38 jurisdictions
-2. Optimal agent count predicted for each jurisdiction
-3. ≥30/38 predictions correct within tolerance
-4. Phase transition signature observed in jurisdiction complexity scaling
+1. Identify and curate public datasets on AI agents for financial crime detection
+2. Apply theoretical model to predict optimal agent configurations
+3. Compare predictions to reported performance in literature/datasets
+4. Phase transition signature observed in agent scaling behavior
 
 **Depends on:** Phase 2 (theoretical predictions)
 
 **Plans:**
-- [ ] 07-01: Extract ING AML deployment metrics
-- [ ] 07-02: Apply theoretical model to predict optimal N
-- [ ] 07-03: Compare predictions to actual deployment configurations
-- [ ] 07-04: Analyze phase transition signature
+- [ ] 07-01: Research and curate public AML agent datasets (literature, open-source repos)
+- [ ] 07-02: Apply theoretical model to predict optimal N for identified tasks
+- [ ] 07-03: Compare predictions to literature-reported performance
+- [ ] 07-04: Analyze phase transition signature in agent scaling
 
 **Contract Coverage:**
 - Validates VALD-03 (real-world prediction requirement)
+- **Note:** Uses publicly available data only (no proprietary ING data)
 
 ---
 
