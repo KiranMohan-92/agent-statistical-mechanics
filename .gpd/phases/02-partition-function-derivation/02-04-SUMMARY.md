@@ -387,3 +387,13 @@ $$q_c(T) = \frac{T}{T - J}$$
 _Phase: 02-partition-function-derivation_
 _Plan: 04_
 _Completed: 2026-03-20_
+
+## Self-Check: PASSED
+
+1. **Check created files exist:** All 4 files found ✓
+2. **Check checkpoints exist:** All 3 commits found ✓
+3. **Domain-specific verification:**
+   - Partition function Z > 0 ✓
+   - Free energy convexity ✓
+   - Critical temperature positivity ✓
+   - T_c decreases with q ✓
