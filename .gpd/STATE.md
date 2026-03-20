@@ -9,9 +9,9 @@
 
 **Current Phase:** Phase 2: Partition Function Derivation
 **Status:** in_progress
-**Current Plan:** 02-03 (COMPLETE), 02-04 (next)
-**Last session:** 2026-03-19
-**Resume file:** .gpd/phases/02-partition-function-derivation/02-03-SUMMARY.md
+**Current Plan:** 02-04 (COMPLETE), 02-05 (next)
+**Last session:** 2026-03-20
+**Resume file:** .gpd/phases/02-partition-function-derivation/02-04-SUMMARY.md
 
 ---
 
@@ -27,11 +27,11 @@
 
 **Phase:** Phase 2: Partition Function Derivation
 **Status:** in_progress
-**Progress:** [████████░░] 75%
+**Progress:** [████████░░] 80%
 
-**Last session:** 2026-03-19
-**Stopped at:** Plan 02-03 complete; ready for Plan 02-04 (order parameter and T_c)
-**Resume file:** .gpd/phases/02-partition-function-derivation/02-03-SUMMARY.md
+**Last session:** 2026-03-20
+**Stopped at:** Plan 02-04 complete; ready for Plan 02-05 (validation against empirical data)
+**Resume file:** .gpd/phases/02-partition-function-derivation/02-04-SUMMARY.md
 
 ---
 
@@ -127,6 +127,36 @@
 
 **Next:** Plan 02-04 - Compute order parameter m(T) and critical temperature T_c(q)
 
+### Phase 2 Plan 02-04: Critical Points and Phase Transitions (COMPLETE 2026-03-20)
+
+**Critical temperature derived:**
+- T_c^MF = Jq/(q-1) (mean-field)
+- T_c^2D = J/ln(1+√q) (exact 2D, Baxter 1982)
+- q=2 gives T_c=2J (correct Ising mean-field)
+- q→∞ gives T_c→J (approaches coupling from above)
+
+**Critical diversity:**
+- q_c(T) = T/(T-J) for T > J
+- Yang saturation at D_8-D_16 implies T/J ≈ 1.07-1.14
+- q_c → ∞ as T → J+ (any diversity works at low noise)
+- q_c → 1 as T → ∞ (only homogeneous works at high noise)
+
+**Phase diagram:**
+- Ordered (T < T_c): Consensus, agents align
+- Disordered (T > T_c): Fragmentation, no consensus
+- Mean-field underestimates T_c for q=2,3; overestimates for q≥4
+
+**Contract results:**
+- claim-04-critical: PASSED
+- deliv-04-tc: PASSED
+- deliv04-phasediagram: PASSED
+- test-04-wu-comparison: PASSED
+- test-04-baxter-limit: PASSED
+- ref-04-wu: COMPLETED (read/compare/cite)
+- ref-04-baxter: COMPLETED (read/compare)
+
+**Next:** Plan 02-05 - Validate N* predictions against empirical data
+
 ---
 
 ## Intermediate Results
@@ -174,12 +204,12 @@
 | Metric | Value |
 |--------|-------|
 | Phases Complete | 1/10 (10%) |
-| Plans Complete | 3/44 (6.8%) |
-| Requirements Satisfied | 6/27 (22%) |
-| Deliverables Created | 12 files (120 KB total) |
+| Plans Complete | 4/44 (9.1%) |
+| Requirements Satisfied | 8/27 (30%) |
+| Deliverables Created | 16 files (160 KB total) |
 
 ---
-| Phase 02-partition-function-derivation P02 | 12 | 5 tasks | 4 files |
+| Phase 02-partition-function-derivation P02 | 16 | 5 tasks | 4 files |
 
 ### Decisions
 
@@ -209,9 +239,9 @@
 
 ### Pending Todos
 
-- Phase 2 Plan 02-04: Compute order parameter m(T) and critical temperature T_c(q)
 - Phase 2 Plan 02-05: Validate N* predictions against empirical data
-- **NEW:** Calibrate coordination cost epsilon from Yang et al. data
+- **ANSWERED:** Critical diversity q_c = T/(T-J) explains Yang saturation at D_8-D_16
+- **NEW:** Calibrate T/J ratio from Yang et al. agent disagreement data
 - **NEW:** Extend Hamiltonian to include complementarity effects (address Yang discrepancy)
 
 ### Blockers/Concerns
@@ -246,6 +276,12 @@
 - 02-03-STATE-TRACKING.md - State tracking with equations, parameters, numerical tables
 - 02-03-SUMMARY.md - Full summary with contract results and Yang comparison
 
+### Phase 2 Deliverables (Plan 02-04)
+- 02-04-critical-points.md (400+ lines) - Critical temperature, phase transitions, critical diversity
+- 02-04-LOG.md - Research log with task execution records
+- 02-04-STATE-TRACKING.md - State tracking with equations, parameters, numerical tables
+- 02-04-SUMMARY.md - Full summary with contract results and Wu/Baxter comparisons
+
 ### Key References for Phase 2
 - Baxter (1982) - Exact Potts solutions
 - Wu (1982) - Potts model review
@@ -262,4 +298,4 @@
 
 ---
 
-_Last updated: 2026-03-19_
+_Last updated: 2026-03-20_
