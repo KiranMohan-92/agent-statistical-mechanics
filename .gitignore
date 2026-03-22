@@ -1,0 +1,5 @@
+# Research papers / binary assets — track separately if needed
+*.pdf
+
+# Backup files
+*.bak
