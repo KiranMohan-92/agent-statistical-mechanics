@@ -167,9 +167,20 @@ Mirror of contract-critical anchors only:
 | Statistical mechanics framework | Unified theory for agent systems | — Active |
 | Ising/Potts models | Well-understood, tractable | — Active |
 | Validation against real data | Ensures practical relevance | — Active |
+| Coordination cost convention | ε has dimensions [E] (N is dimensionless count) | — Corrected 2026-04-03 |
 
 Full log: `.gpd/DECISIONS.md`
 
+## Known Issues (from verification audit 2026-04-03)
+
+1. **N* interpretation:** The formula N* = (T/2ε)·ln[e^{J/2T} + (q-1)e^{-J/2T}] shows N* *increases* with q (diverse systems sustain larger optimal populations). Earlier tables incorrectly showed the opposite trend — corrected in 02-03-free-energy.md and 02-03-SUMMARY.md.
+
+2. **Diversity multiplier:** Pure entropic model gives max ~3× benefit (at high T). Yang et al. observes 4-8×, indicating non-entropic effects (complementarity, error decorrelation) need to be added to the Hamiltonian.
+
+3. **T_c^2D numerical values:** Corrected in 02-04-SUMMARY.md. The formula T_c^2D = J/ln(1+√q) was always correct; only the numerical table had errors.
+
+4. **ε convention:** Corrected from [E/N²] → [E]. Since N is a dimensionless count, ε carries pure energy dimensions.
+
 ---
 
-_Last updated: 2026-03-16 after initialization_
+_Last updated: 2026-04-03 after verification audit_

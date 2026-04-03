@@ -1,106 +1,136 @@
 {
   "project_reference": {
-    "project_md_updated": null,
+    "project_md_updated": "2026-04-03",
     "core_research_question": "Derive first-principles limits on optimal agent scaling N* = f(H, q, T) in LLM-based multi-agent systems using statistical mechanics (partition functions, Ising/Potts models, renormalization group).",
-    "current_focus": "Deriving partition function Z(N, q, T) using Potts model with mean-field theory"
+    "current_focus": "Preparing for Phase 4: Ising-Agent Simulation (Monte Carlo validation)"
   },
   "project_contract": null,
   "position": {
-    "current_phase": "Phase 2: Partition Function Derivation",
-    "current_phase_name": null,
-    "total_phases": null,
-    "current_plan": "02-01 (COMPLETE), 02-02 (next)",
-    "total_plans_in_phase": null,
-    "status": "in_progress",
-    "last_activity": null,
-    "last_activity_desc": null,
-    "progress_percent": 50,
+    "current_phase": "04-ising-agent-simulation",
+    "current_phase_name": "Ising-Agent Simulation",
+    "total_phases": 10,
+    "current_plan": "04-01 (next)",
+    "total_plans_in_phase": 5,
+    "status": "ready",
+    "last_activity": "2026-04-03",
+    "last_activity_desc": "Verification audit completed — all Phase 1-3 results validated with corrections applied",
+    "progress_percent": 30,
     "paused_at": null
   },
   "active_calculations": [
-    "H = -J \u03a3_{\u27e8ij\u27e9} \u03b4(s_i, s_j) with J > 0 (ferromagnetic)",
-    "State space: s_i \u2208 {1, ..., q} categorical",
-    "Mean-field: \u03a3_{\u27e8ij\u27e9} \u2192 (N/2) \u03a3_{i\u2260j}",
-    "P({s_i}) \u221d exp(-\u03b2H)/Z (lower energy = better performance)",
+    "H = -J Σ_{⟨ij⟩} δ(s_i, s_j) with J > 0 (ferromagnetic)",
+    "State space: s_i ∈ {1, ..., q} categorical",
+    "Mean-field: Σ_{⟨ij⟩} → (N/2) Σ_{i≠j}",
+    "P({s_i}) ∝ exp(-βH)/Z (lower energy = better performance)",
     "Free energy: F = U - TS (explains diversity bonus)",
     "q: Number of distinct agent types (1-16)",
     "J: Alignment strength (0.1-10 in k_B=1 units)",
     "T_eff: Stochasticity = disagreement rate / J (0.5-2.0)",
     "N: System size (2-100, finite-size regime)",
     "claim-01-hamiltonian: PASSED",
-    "deliv-01-hamiltonian: PASSED",
-    "deliv01-state-space: PASSED",
-    "test-01-mapping: PASSED",
-    "test-01-energy: PASSED",
-    "fp-01-implicit: REJECTED (explicit definitions provided)"
+    "claim-02-z-mf: PASSED",
+    "claim-03-nstar: PASSED_WITH_LIMITATION",
+    "claim-04-critical: PASSED",
+    "claim-05-validation: PASSED",
+    "claim-03-01-stability: PASSED",
+    "claim-03-01-ginzburg: PASSED",
+    "claim-03-02-gaussian-fixed-point: PASSED",
+    "claim-03-02-wilson-fisher: PASSED",
+    "claim-03-02-epsilon-expansion: PASSED"
   ],
   "intermediate_results": [
     "Cataloged 8+ Ising/Potts model applications to agent systems",
     "Identified 4 established physics results for validation",
-    "1D Potts: Z = [e^{\u03b2J} + (q-1)]^N",
-    "2D Potts T_c: k_B T_c/J = 1/ln(1+\u221aq)",
+    "1D Potts: Z = [e^{βJ} + (q-1)]^N",
+    "2D Potts T_c: k_B T_c/J = 1/ln(1+√q)",
     "Mean-field T_c: k_B T_c^{MF}/J = q/(q-1)",
     "Mean-field free energy structure documented",
-    "q \u2192 Number of distinct agent types (discrete diversity)",
-    "J \u2192 Agent alignment/communication strength",
-    "T_eff \u2192 Noise/stochasticity in responses",
-    "N \u2192 Agent count (finite-size effects critical for N<100)",
+    "q → Number of distinct agent types (discrete diversity)",
+    "J → Agent alignment/communication strength",
+    "T_eff → Noise/stochasticity in responses",
+    "N → Agent count (finite-size effects critical for N<100)",
     "Retrieved arXiv:2602.03794 (fully-connected agent topology)",
-    "Key finding: D_4 (4 diverse) \u2248 16-32 homogeneous agents",
-    "Diversity multiplier: ~4-8\u00d7 (primary validation target)",
+    "Key finding: D_4 (4 diverse) ≈ 16-32 homogeneous agents",
+    "Diversity multiplier: ~4-8× (primary validation target)",
     "Mean-field assumption validated by fully-connected topology",
-    "\u2705 Potts model with mean-field theory",
-    "\u2705 Hamiltonian: H = -J \u03a3_{\u27e8ij\u27e9} \u03b4(s_i, s_j)",
-    "\u2705 Free energy minimization for N*"
+    "✅ Potts model with mean-field theory",
+    "✅ Hamiltonian: H = -J Σ_{⟨ij⟩} δ(s_i, s_j)",
+    "✅ Free energy minimization for N*",
+    "N*(q,T) = (T/2ε) ln[e^{J/2T} + (q-1)e^{-J/2T}] — N* increases with q",
+    "Equal-performance diversity multiplier: max ~3× from pure entropy",
+    "Yang 4-8× requires non-entropic effects (complementarity)",
+    "RG flow equations: dr/dl, du/dl for momentum-shell integration",
+    "Gaussian FP: r*=0, u*=0 with y_r=2, y_u=4-d",
+    "Wilson-Fisher FP: r*~ε, u*~ε for d<4",
+    "Critical exponents: ν=1/2+ε/12, β=1/2-ε/6, γ=1+ε/6",
+    "Correlation length: ξ ~ |T-T_c|^{-1/2} (ν=1/2 mean-field)",
+    "Ginzburg criterion: Gi ~ |T-T_c|^{(4-d)/2}, d=4 upper critical dimension"
   ],
-  "open_questions": [],
+  "open_questions": [
+    "How to incorporate complementarity effects into Hamiltonian?",
+    "What is the actual T/J ratio in Yang et al.'s agent system?",
+    "Can we calibrate ε from Yang's N* data?",
+    "How do finite-size corrections modify N* for N < 20 agents?"
+  ],
   "performance_metrics": {
     "rows": [
       {
         "label": "Phases Complete",
-        "duration": "1/10 (10%)",
-        "tasks": null,
-        "files": null
+        "duration": "3/10 (30%)",
+        "tasks": "-",
+        "files": "-"
       },
       {
         "label": "Plans Complete",
-        "duration": "1/44 (2.3%)",
-        "tasks": null,
-        "files": null
-      },
-      {
-        "label": "Requirements Satisfied",
-        "duration": "4/27 (15%)",
-        "tasks": null,
-        "files": null
+        "duration": "11/47 (23%)",
+        "tasks": "-",
+        "files": "-"
       },
       {
         "label": "Deliverables Created",
-        "duration": "4 files (60 KB total)",
-        "tasks": null,
-        "files": null
+        "duration": "~40 files across 3 phases",
+        "tasks": "-",
+        "files": "-"
       },
       {
-        "label": "Phase 02-partition-function-derivation P02",
-        "duration": "12",
-        "tasks": "5",
-        "files": "4"
+        "label": "Phase 02-partition-function-derivation",
+        "duration": "5 plans",
+        "tasks": "26",
+        "files": "20"
+      },
+      {
+        "label": "Phase 03-phase-transition-analysis",
+        "duration": "2 plans (of 5)",
+        "tasks": "4",
+        "files": "6"
       }
     ]
   },
-  "decisions": [],
-  "approximations": [],
+  "decisions": [
+    "Potts model with mean-field theory chosen as framework (2026-03-16)",
+    "Coordination cost F_cost = εN² added for finite N* prediction (2026-03-19)",
+    "Yang discrepancy documented: pure entropy gives ~3× max, Yang observes 4-8× (2026-03-19)",
+    "ε convention corrected: [ε] = [E] since N is dimensionless count (2026-04-03)",
+    "N* interpretation corrected: N* increases with q (diverse systems sustain larger populations) (2026-04-03)"
+  ],
+  "approximations": [
+    "Mean-field approximation: valid for fully-connected topology, O(1/d) corrections for sparse networks",
+    "Saddle-point approximation: O(1/N) finite-size errors, breaks down at N < 10",
+    "Gaussian fluctuations: valid away from T_c, O(u) near critical point",
+    "Epsilon expansion: O(ε²) errors, unreliable for d ≤ 2 (ε ≥ 2)",
+    "Scalar φ⁴ theory: valid for q=2 (Ising), q>2 requires vector field theory"
+  ],
   "convention_lock": {
     "metric_signature": "Euclidean (+---)",
     "fourier_convention": "exp(-ikx) forward, exp(ikx) inverse",
     "natural_units": "k_B = 1",
+    "coordinate_system": "Cartesian",
     "gauge_choice": null,
     "regularization_scheme": null,
     "renormalization_scheme": null,
-    "coordinate_system": "Cartesian",
-    "spin_basis": null,
-    "state_normalization": null,
-    "coupling_convention": null,
+    "spin_basis": "Potts s_i ∈ {1, ..., q}",
+    "state_normalization": "Boltzmann P ∝ e^{-βE}",
+    "coupling_convention": "H = -J Σ δ(s_i, s_j), J>0 ferromagnetic",
     "index_positioning": null,
     "time_ordering": null,
     "commutation_convention": null,
@@ -110,24 +140,29 @@
     "gamma_matrix_convention": null,
     "creation_annihilation_order": null,
     "custom_conventions": {
-      "fourier": "** exp(-ikx) forward, exp(ikx) inverse",
-      "potts_hamiltonian": "** H = -J \u03a3_{\u27e8ij\u27e9} \u03b4(s_i, s_j), J>0",
-      "order_parameter": "** m = (qN_max - N) / [(q-1)N]"
+      "potts_hamiltonian": "H = -J Σ_{⟨ij⟩} δ(s_i, s_j), J>0",
+      "order_parameter": "m = (qN_max - N) / [(q-1)N]",
+      "coordination_cost": "F_cost = εN², [ε] = [E]"
     }
   },
-  "propagated_uncertainties": [],
+  "propagated_uncertainties": [
+    "ε parameter not empirically calibrated — affects N* magnitude but not scaling",
+    "T/J ratio estimated from q_c analysis (1.07-1.14), needs direct measurement",
+    "Mean-field approximation accuracy unknown for N < 50 — requires MC validation (Phase 4)"
+  ],
   "pending_todos": [
-    "Phase 2 Plan 02-02: Derive 1D Potts partition function Z(N, q, T)",
-    "Phase 2 Plan 02-03: Derive mean-field free energy approximation",
-    "Phase 2 Plan 02-04: Compute order parameter and critical temperature",
-    "Phase 2 Plan 02-05: Find optimal agent count N* from free energy minimization"
+    "Phase 4 Plan 04-01: Implement Monte Carlo simulation of agent system on 2D lattice",
+    "Phase 4 Plan 04-02: Validate against mean-field predictions",
+    "Phase 4 Plan 04-03: Finite-size scaling analysis",
+    "Phase 4 Plan 04-04: Compare with Yang et al. empirical data",
+    "Phase 4 Plan 04-05: Extract J and T_eff from simulation"
   ],
   "blockers": [],
   "session": {
-    "last_date": "2026-03-18",
+    "last_date": "2026-04-03",
     "stopped_at": null,
-    "resume_file": ".gpd/phases/02-partition-function-derivation/02-01-SUMMARY.md"
+    "resume_file": null
   },
   "_version": 1,
-  "_synced_at": "2026-03-18T21:47:36.147825+00:00"
+  "_synced_at": "2026-04-03T22:00:00.000000+00:00"
 }

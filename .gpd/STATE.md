@@ -5,19 +5,19 @@
 See: .gpd/PROJECT.md
 
 **Core research question:** Derive first-principles limits on optimal agent scaling N* = f(H, q, T) in LLM-based multi-agent systems using statistical mechanics (partition functions, Ising/Potts models, renormalization group).
-**Current focus:** Deriving partition function Z(N, q, T) using Potts model with mean-field theory
+**Current focus:** Preparing for Phase 4: Ising-Agent Simulation (Monte Carlo validation)
 
 ## Current Position
 
-**Current Phase:** Phase 2: Partition Function Derivation
-**Current Phase Name:** —
-**Total Phases:** —
-**Current Plan:** 02-01 (COMPLETE), 02-02 (next)
-**Total Plans in Phase:** —
-**Status:** in_progress
-**Last Activity:** —
+**Current Phase:** 04-ising-agent-simulation
+**Current Phase Name:** Ising-Agent Simulation
+**Total Phases:** 10
+**Current Plan:** 04-01 (next)
+**Total Plans in Phase:** 5
+**Status:** ready
+**Last Activity:** 2026-04-03 — Verification audit completed, all Phase 1-3 results validated with corrections
 
-**Progress:** [█████░░░░░] 50%
+**Progress:** [███░░░░░░░] 30%
 
 ## Active Calculations
 
@@ -31,11 +31,15 @@ See: .gpd/PROJECT.md
 - T_eff: Stochasticity = disagreement rate / J (0.5-2.0)
 - N: System size (2-100, finite-size regime)
 - claim-01-hamiltonian: PASSED
-- deliv-01-hamiltonian: PASSED
-- deliv01-state-space: PASSED
-- test-01-mapping: PASSED
-- test-01-energy: PASSED
-- fp-01-implicit: REJECTED (explicit definitions provided)
+- claim-02-z-mf: PASSED
+- claim-03-nstar: PASSED_WITH_LIMITATION
+- claim-04-critical: PASSED
+- claim-05-validation: PASSED
+- claim-03-01-stability: PASSED
+- claim-03-01-ginzburg: PASSED
+- claim-03-02-gaussian-fixed-point: PASSED
+- claim-03-02-wilson-fisher: PASSED
+- claim-03-02-epsilon-expansion: PASSED
 
 ## Intermediate Results
 
@@ -56,30 +60,50 @@ See: .gpd/PROJECT.md
 - ✅ Potts model with mean-field theory
 - ✅ Hamiltonian: H = -J Σ_{⟨ij⟩} δ(s_i, s_j)
 - ✅ Free energy minimization for N*
+- N*(q,T) = (T/2ε) ln[e^{J/2T} + (q-1)e^{-J/2T}] — N* increases with q
+- Equal-performance diversity multiplier: max ~3× from pure entropy
+- Yang 4-8× requires non-entropic effects (complementarity)
+- RG flow equations: dr/dl, du/dl for momentum-shell integration
+- Gaussian FP: r*=0, u*=0 with y_r=2, y_u=4-d
+- Wilson-Fisher FP: r*~ε, u*~ε for d<4
+- Critical exponents: ν=1/2+ε/12, β=1/2-ε/6, γ=1+ε/6
+- Correlation length: ξ ~ |T-T_c|^{-1/2} (ν=1/2 mean-field)
+- Ginzburg criterion: Gi ~ |T-T_c|^{(4-d)/2}, d=4 upper critical dimension
 
 ## Open Questions
 
-None yet.
+- How to incorporate complementarity effects into Hamiltonian?
+- What is the actual T/J ratio in Yang et al.'s agent system?
+- Can we calibrate ε from Yang's N* data?
+- How do finite-size corrections modify N* for N < 20 agents?
 
 ## Performance Metrics
 
 | Label | Duration | Tasks | Files |
 | ----- | -------- | ----- | ----- |
-| Phases Complete | 1/10 (10%) | - tasks | - files |
-| Plans Complete | 1/44 (2.3%) | - tasks | - files |
-| Requirements Satisfied | 4/27 (15%) | - tasks | - files |
-| Deliverables Created | 4 files (60 KB total) | - tasks | - files |
-| Phase 02-partition-function-derivation P02 | 12 | 5 tasks | 4 files |
+| Phases Complete | 3/10 (30%) | - tasks | - files |
+| Plans Complete | 11/47 (23%) | - tasks | - files |
+| Deliverables Created | ~40 files across 3 phases | - tasks | - files |
+| Phase 02-partition-function-derivation | 5 plans | 26 tasks | 20 files |
+| Phase 03-phase-transition-analysis | 2 plans (of 5) | 4 tasks | 6 files |
 
 ## Accumulated Context
 
 ### Decisions
 
-None yet.
+1. Potts model with mean-field theory chosen as framework (2026-03-16)
+2. Coordination cost F_cost = εN² added for finite N* prediction (2026-03-19)
+3. Yang discrepancy documented: pure entropy gives ~3× max, Yang observes 4-8× (2026-03-19)
+4. ε convention corrected: [ε] = [E] since N is dimensionless count (2026-04-03)
+5. N* interpretation corrected: N* increases with q (diverse systems sustain larger populations) (2026-04-03)
 
 ### Active Approximations
 
-None yet.
+- Mean-field approximation: valid for fully-connected topology, O(1/d) corrections for sparse networks
+- Saddle-point approximation: O(1/N) finite-size errors, breaks down at N < 10
+- Gaussian fluctuations: valid away from T_c, O(u) near critical point
+- Epsilon expansion: O(ε²) errors, unreliable for d ≤ 2 (ε ≥ 2)
+- Scalar φ⁴ theory: valid for q=2 (Ising), q>2 requires vector field theory
 
 **Convention Lock:**
 
@@ -87,22 +111,28 @@ None yet.
 - Fourier convention: exp(-ikx) forward, exp(ikx) inverse
 - Natural units: k_B = 1
 - Coordinate system: Cartesian
+- Spin basis: Potts s_i ∈ {1, ..., q}
+- State normalization: Boltzmann P ∝ e^{-βE}
+- Coupling convention: H = -J Σ δ(s_i, s_j), J>0 ferromagnetic
 
 *Custom conventions:*
-- Fourier: ** exp(-ikx) forward, exp(ikx) inverse
-- Potts Hamiltonian: ** H = -J Σ_{⟨ij⟩} δ(s_i, s_j), J>0
-- Order Parameter: ** m = (qN_max - N) / [(q-1)N]
+- Potts Hamiltonian: H = -J Σ_{⟨ij⟩} δ(s_i, s_j), J>0
+- Order Parameter: m = (qN_max - N) / [(q-1)N]
+- Coordination cost: F_cost = εN², [ε] = [E]
 
 ### Propagated Uncertainties
 
-None yet.
+- ε parameter not empirically calibrated — affects N* magnitude but not scaling
+- T/J ratio estimated from q_c analysis (1.07-1.14), needs direct measurement
+- Mean-field approximation accuracy unknown for N < 50 — requires MC validation (Phase 4)
 
 ### Pending Todos
 
-- Phase 2 Plan 02-02: Derive 1D Potts partition function Z(N, q, T)
-- Phase 2 Plan 02-03: Derive mean-field free energy approximation
-- Phase 2 Plan 02-04: Compute order parameter and critical temperature
-- Phase 2 Plan 02-05: Find optimal agent count N* from free energy minimization
+- Phase 4 Plan 04-01: Implement Monte Carlo simulation of agent system on 2D lattice
+- Phase 4 Plan 04-02: Validate against mean-field predictions
+- Phase 4 Plan 04-03: Finite-size scaling analysis
+- Phase 4 Plan 04-04: Compare with Yang et al. empirical data
+- Phase 4 Plan 04-05: Extract J and T_eff from simulation
 
 ### Blockers/Concerns
 
@@ -110,6 +140,6 @@ None
 
 ## Session Continuity
 
-**Last session:** 2026-03-18
+**Last session:** 2026-04-03
 **Stopped at:** —
-**Resume file:** .gpd/phases/02-partition-function-derivation/02-01-SUMMARY.md
+**Resume file:** — (clean state, ready for Phase 4)

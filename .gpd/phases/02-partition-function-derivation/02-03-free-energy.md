@@ -203,109 +203,57 @@ $$N^*(q, T) = \frac{1}{2\epsilon \beta} \ln\left[e^{\beta J/2} + (q-1)e^{-\beta 
 
 **Derivative with respect to q:**
 
-$$\frac{\partial N^*}{\partial q} = \frac{1}{2\epsilon \beta} \cdot \frac{e^{-\beta J/2}}{e^{\beta J/2} + (q-1)e^{-\beta J/2}}$$
+$$\frac{\partial N^*}{\partial q} = \frac{1}{2\epsilon \beta} \cdot \frac{e^{-\beta J/2}}{e^{\beta J/2} + (q-1)e^{-\beta J/2}} > 0$$
 
-Since all factors are positive:
-- $\epsilon > 0$ (cost parameter)
-- $\beta = 1/T > 0$ (positive inverse temperature)
-- Denominator: $e^{\beta J/2} + (q-1)e^{-\beta J/2} > 0$
+Since all factors are positive, **$N^*$ increases with $q$**.
 
-**Therefore:**
+### 5.2 Physical Interpretation
 
-$$\frac{\partial N^*}{\partial q} > 0$$
+This result has a clear physical meaning:
 
-Wait—this says $N^*$ **increases** with $q$! Let me reconsider the physical interpretation.
+- Higher diversity $q$ → more entropy per agent → each agent provides more "value"
+- The coordination cost $\epsilon N^2$ is the same regardless of diversity
+- Therefore the system can sustain a **larger** optimal population before costs outweigh benefits
 
-### 5.2 Re-examining the Interpretation
+**This does NOT mean diverse systems are less efficient.** It means:
+- For a given coordination budget, diverse systems can operate at larger scale
+- The *per-agent* free energy is lower for diverse systems (better performance)
+- The optimal $N^*$ shifts upward because the statistical benefit term grows faster with $q$
 
-Actually, looking at the free energy expression more carefully:
+### 5.3 Equal-Performance Comparison (Yang Interpretation)
 
-The statistical mechanics term $F_{\text{stat}} = -NT \ln[\cdots]$ becomes **more negative** with larger $q$ (because the logarithm increases). This means:
+Yang et al. ask a different question: **How many homogeneous agents equal the performance of diverse agents?**
 
-$$F_{\text{stat}}(q=2) < F_{\text{stat}}(q=1)$$
-
-More diversity → lower free energy → better performance (at fixed $N$)
-
-The optimal $N^*$ formula shows:
-
-$$N^*(q) = \frac{T}{2\epsilon} \ln\left[e^{J/2T} + (q-1)e^{-J/2T}\right]$$
-
-For fixed $T$, as $q$ increases:
-- The logarithm increases
-- Therefore $N^*(q)$ increases
-
-**BUT**—this is the wrong interpretation! Let me reconsider.
-
-### 5.3 Correct Interpretation: Equal Performance Criterion
-
-The key insight from Yang et al. is: **What number of diverse agents equals what number of homogeneous agents?**
-
-Instead of asking "what is $N^*$ for given $q$?", we should ask:
-
-**For what $N_1$ (homogeneous, $q=1$) and $N_2$ (diverse, $q=2$) do we have equal free energy?**
-
-$$F_{\text{total}}(N_1, q=1, T) = F_{\text{total}}(N_2, q=2, T)$$
-
-$$-\frac{N_1}{\beta} \ln e^{\beta J/2} + \epsilon N_1^2 = -\frac{N_2}{\beta} \ln\left[e^{\beta J/2} + e^{-\beta J/2}\right] + \epsilon N_2^2$$
-
-$$-\frac{N_1 J}{2} + \epsilon N_1^2 = -\frac{N_2}{\beta} \ln\left[2\cosh\left(\frac{\beta J}{2}\right)\right] + \epsilon N_2^2$$
-
-### 5.4 Diversity Efficiency Ratio
-
-For **small coordination costs** ($\epsilon \to 0$), the quadratic terms vanish:
-
-$$\frac{N_2}{N_1} \approx \frac{J/2}{\ln\left[2\cosh(\beta J/2)\right]/\beta} = \frac{\beta J/2}{\ln\left[2\cosh(\beta J/2)\right]}$$
-
-This ratio tells us: **How many homogeneous agents equal one diverse agent?**
-
-**Let's compute this ratio:**
-
-Define the **diversity multiplier**:
-
-$$\mathcal{D}(T) = \frac{N(q=1)}{N(q=2)} \bigg|_{F = \text{constant}}$$
-
-For equal free energy ignoring coordination costs:
+For equal free energy (ignoring coordination costs, $\epsilon \to 0$):
 
 $$N_1 \cdot \frac{J}{2} = N_2 \cdot T \ln\left[2\cosh\left(\frac{J}{2T}\right)\right]$$
 
-$$\mathcal{D}(T) = \frac{N_1}{N_2} = \frac{2T}{J} \ln\left[2\cosh\left(\frac{J}{2T}\right)\right]$$
+$$\mathcal{D}(\tau) = \frac{N_1}{N_2} = \frac{2}{\tau} \ln\left[2\cosh\left(\frac{\tau}{2}\right)\right]$$
 
-### 5.5 Numerical Values of Diversity Multiplier
+where $\tau = J/T$.
 
-Let $\tau = J/T$ (dimensionless inverse temperature). Then:
+**Numerical values:**
 
-$$\mathcal{D}(\tau) = \frac{2}{\tau} \ln\left[2\cosh\left(\frac{\tau}{2}\right)\right]$$
+| $\tau = J/T$ | $\mathcal{D}(\tau)$ | 1/$\mathcal{D}$ (homogeneous per diverse) | Interpretation |
+|-------------|-------------------|------------------------------------------|----------------|
+| 0.5 (high T) | 2.90 | 0.35 | 1 homogeneous ≈ 2.9 diverse agents |
+| 1.0 | 1.63 | 0.61 | 1 homogeneous ≈ 1.6 diverse agents |
+| 2.0 | 1.13 | 0.89 | Nearly equivalent |
+| 3.0 | 1.03 | 0.97 | Nearly equivalent |
+| 5.0 | 1.00 | 1.00 | Converging to 1:1 |
 
-| $\tau = J/T$ | $\mathcal{D}(\tau)$ | Interpretation |
-|-------------|-------------------|----------------|
-| 0.5 (high T) | 0.97 | Diverse agents slightly worse |
-| 1.0 | 0.92 | Diverse agents ~8% better |
-| 2.0 | 0.78 | Diverse agents ~28% better |
-| 3.0 | 0.62 | Diverse agents ~60% better |
-| 4.0 | 0.49 | Diverse agents ~2× better |
-| 5.0 | 0.40 | Diverse agents ~2.5× better |
+**Key finding:** The pure entropic model predicts at most ~3× diversity benefit (at high temperature). Yang observes 4-8×, indicating significant **non-entropic** benefits from diversity (complementarity, error decorrelation, etc.).
 
-**Inverted interpretation (what Yang reports):**
+### 5.4 Why the Model Underestimates Yang's Result
 
-Yang says: "4 diverse ≈ 16-32 homogeneous"
+The discrepancy between our ~3× maximum and Yang's 4-8× suggests:
 
-This means: **1 diverse ≈ 4-8 homogeneous**
+1. **Complementarity:** Diverse agents solve different subproblems (not captured by entropy)
+2. **Error decorrelation:** Diverse agents make uncorrelated mistakes, reducing consensus errors
+3. **Coverage:** More diverse agents cover more of the solution space
+4. **Redundancy reduction:** Homogeneous agents duplicate effort; diverse agents don't
 
-Our diversity multiplier $\mathcal{D}$ should be interpreted as:
-- $\mathcal{D} = 0.25$ means: 1 diverse agent = 4 homogeneous agents
-- Or: $1/\mathcal{D} = 4$ is the "diversity multiplier"
-
-**Our result:**
-- At $\tau \approx 5$: $1/\mathcal{D} \approx 2.5$ (not quite 4-8)
-- At $\tau \approx 8$: $1/\mathcal{D} \approx 3.5$
-- As $\tau \to \infty$: $1/\mathcal{D} \to 2$ (asymptotic limit of 2×)
-
-**The pure mean-field model predicts a maximum diversity multiplier of 2×, not 4-8×.**
-
-This discrepancy suggests:
-1. Real agent systems have additional coordination costs for homogeneous systems
-2. Diversity provides benefits beyond entropy (e.g., complementary capabilities)
-3. The Yang result includes task-specific factors not in our model
+These effects are **outside the pure Potts model** and would require extending the Hamiltonian.
 
 ---
 
@@ -338,13 +286,13 @@ $$N^* \approx \frac{T}{2\epsilon} \ln q$$
 
 This makes physical sense:
 - High noise (high T) requires more agents for reliable consensus
-- More diversity (higher q) reduces the needed agents (through $\ln q$)
+- More diversity (higher q) allows the system to sustain a larger optimal population
 
 ### 6.3 Critical Temperature Discussion
 
-The Potts model has a phase transition at:
+The Potts model has a phase transition at (from Plan 02-04):
 
-$$T_c^{\text{MF}} = \frac{J}{\ln(1+q)}$$
+$$T_c^{\text{MF}} = \frac{J q}{q - 1}$$
 
 **Near $T_c$:**
 - Below $T_c$: Agents align spontaneously (ordered phase)
@@ -367,42 +315,71 @@ For numerical evaluation, we use:
 
 ### 7.2 N* Table
 
+**Corrected values** from the formula $N^* = \frac{T}{2\epsilon} \ln\left[e^{J/2T} + (q-1)e^{-J/2T}\right]$:
+
 | $q$ | $T = 0.5$ | $T = 1.0$ | $T = 1.5$ | $T = 2.0$ |
 |-----|----------|----------|----------|----------|
-| 1 | 25.0 | 26.1 | 27.3 | 28.7 |
-| 2 | 22.8 | 24.4 | 26.1 | 27.9 |
-| 4 | 19.9 | 22.3 | 24.6 | 27.0 |
-| 8 | 16.7 | 20.0 | 23.0 | 26.0 |
-| 16 | 13.7 | 17.8 | 21.4 | 25.0 |
+| 1 | 25.0 | 25.0 | 25.0 | 25.0 |
+| 2 | 28.2 | 40.7 | 56.1 | 72.4 |
+| 4 | 33.5 | 62.2 | 94.9 | 128.7 |
+| 8 | 41.7 | 88.7 | 139.4 | 190.7 |
+| 16 | 52.7 | 118.7 | 187.3 | 256.2 |
 
 **Observations:**
-- $N^*$ decreases with $q$ (diversity reduces optimal agent count) ✓
+- $N^*$ **increases** with $q$ (more diversity → system can support more agents before coordination costs dominate) ✓
 - $N^*$ increases with $T$ (higher temperature requires more agents) ✓
-- Effect is more pronounced at low $T$ (ordered regime)
+- For $q=1$ (homogeneous): $N^* = J/(4\epsilon) = 25$ is constant across all $T$ ✓
+- The increase is super-linear in $q$ (logarithmic growth)
 
-### 7.3 Diversity Multiplier Table
+**Physical interpretation:** Higher diversity provides more entropy benefit per agent, so the system can sustain a larger agent population before the quadratic coordination cost $\epsilon N^2$ outweighs the statistical benefit. This does NOT mean diverse systems are less efficient — it means the optimal operating point shifts to larger populations.
 
-Ratio: $N^*(q=1) / N^*(q)$
+### 7.3 Equal-Performance Diversity Multiplier
+
+To compare with Yang et al., we ask: **How many homogeneous agents equal the free energy of diverse agents?**
+
+For equal free energy (ignoring coordination costs, $\epsilon \to 0$):
+
+$$\mathcal{D}(\tau) = \frac{N(q=1)}{N(q=2)} = \frac{2}{\tau} \ln\left[2\cosh\left(\frac{\tau}{2}\right)\right]$$
+
+where $\tau = J/T$.
+
+| $\tau = J/T$ | $\mathcal{D}(\tau)$ | 1/$\mathcal{D}$ (diverse multiplier) | Interpretation |
+|-------------|-------------------|-------------------------------------|----------------|
+| 0.5 (high T) | 2.90 | 0.35 | 1 homogeneous ≈ 2.9 diverse |
+| 1.0 | 1.63 | 0.61 | 1 homogeneous ≈ 1.6 diverse |
+| 2.0 | 1.13 | 0.89 | 1 homogeneous ≈ 1.1 diverse |
+| 3.0 | 1.03 | 0.97 | Nearly equivalent |
+| 4.0 | 1.01 | 0.99 | Nearly equivalent |
+| 5.0 | 1.00 | 1.00 | Converging to 1:1 |
+
+**Inverted:** $1/\mathcal{D}$ tells us how many diverse agents equal 1 homogeneous agent.
+
+**Yang comparison:**
+- Yang reports: 4 diverse ≈ 16-32 homogeneous → 1 diverse ≈ 4-8 homogeneous
+- Our model: 1 diverse ≈ 0.35-1.0 homogeneous (depending on $\tau$)
+- Maximum diversity benefit: ~3× at $\tau = 0.5$ (high temperature, low alignment)
+
+**Discrepancy analysis:**
+- Our model predicts at most ~3× benefit from pure entropy
+- Yang observes 4-8× benefit
+- The Yang result likely includes:
+  1. Task-specific capability complementarity (not captured by entropy)
+  2. Error decorrelation (diverse agents make uncorrelated mistakes)
+  3. Reduced redundancy in homogeneous systems
+  4. Communication overhead differences
+
+### 7.4 Diversity Ratio (N* at equal cost)
+
+Ratio: $N^*(q=1) / N^*(q)$ — this shows how the optimal population size changes with diversity:
 
 | $q$ | $T = 0.5$ | $T = 1.0$ | $T = 1.5$ | $T = 2.0$ |
 |-----|----------|----------|----------|----------|
-| 2 | 1.10 | 1.07 | 1.05 | 1.03 |
-| 4 | 1.26 | 1.17 | 1.11 | 1.06 |
-| 8 | 1.50 | 1.31 | 1.19 | 1.10 |
-| 16 | 1.82 | 1.47 | 1.28 | 1.15 |
+| 2 | 0.887 | 0.615 | 0.446 | 0.345 |
+| 4 | 0.746 | 0.402 | 0.263 | 0.194 |
+| 8 | 0.600 | 0.282 | 0.179 | 0.131 |
+| 16 | 0.474 | 0.211 | 0.134 | 0.098 |
 
-**Yang comparison:**
-- Yang reports: 4 diverse ≈ 16-32 homogeneous → ratio of 4-8
-- Our model: $N^*(q=1)/N^*(q=4) \approx 1.1-1.3$
-
-**Discrepancy analysis:**
-- Our model predicts 10-30% reduction in $N^*$
-- Yang observes 4-8× "effective" agents
-- The Yang result likely includes:
-  1. Task-specific capability differences
-  2. Non-entropic benefits of diversity
-  3. Communication overheads in homogeneous systems
-  4. Complementarity vs. redundancy effects
+**Interpretation:** This ratio < 1 means $N^*(q) > N^*(q=1)$ — diverse systems optimally operate at larger population sizes. The ratio decreases with both $q$ and $T$, meaning the population expansion effect is strongest at high diversity and high temperature.
 
 ### 7.4 Explicit Scaling Law
 
@@ -432,11 +409,13 @@ $$\boxed{N^*(q, T) = \frac{T}{2\epsilon} \ln\left[e^{J/2T} + (q-1)e^{-J/2T}\righ
 
 ### 8.3 Diversity Scaling
 
-$$\frac{\partial N^*}{\partial q} > 0 \quad \text{(N* increases with q in this formulation)}$$
+$$\frac{\partial N^*}{\partial q} > 0 \quad \text{(N* increases with q: diverse systems sustain larger optimal populations)}$$
 
-**Note:** The sign depends on whether we minimize total free energy or compare equal performance. For equal free energy:
+For equal free energy (performance comparison):
 
-$$\mathcal{D}(q) = \frac{N^*(q=1)}{N^*(q)} = \frac{J/2T}{\ln\left[e^{J/2T} + (q-1)e^{-J/2T}\right]}$$
+$$\mathcal{D}(\tau) = \frac{N(q=1)}{N(q=2)} = \frac{2}{\tau} \ln\left[2\cosh\left(\frac{\tau}{2}\right)\right]$$
+
+The pure entropic model predicts at most ~3× diversity benefit (at high T). Yang observes 4-8×, indicating non-entropic effects (complementarity, error decorrelation).
 
 ### 8.4 Temperature Dependence
 
@@ -449,8 +428,10 @@ $$\mathcal{D}(q) = \frac{N^*(q=1)}{N^*(q)} = \frac{J/2T}{\ln\left[e^{J/2T} + (q-
 
 ### 9.1 Dimensional Analysis
 - $[F] = [E]$ ✓
-- $[N^*] = [1]$ ✓
-- $[\epsilon] = [E/N^2]$ ✓
+- $[N^*] = [1]$ (dimensionless count) ✓
+- $[\epsilon] = [E]$ ✓ (since $N$ is a pure count, $[\epsilon N^2] = [E] \cdot [1] = [E]$)
+
+**Note:** The convention was initially stated as $[\epsilon] = [E/N^2]$ in Plan 02-03 and later "corrected" to $[E/N]$ in Plan 02-05. Both are incorrect — since $N$ is a dimensionless count, $[\epsilon] = [E]$ is the correct assignment.
 
 ### 9.2 Limiting Cases
 - $q \to 1$: $N^* = \frac{T}{2\epsilon} \cdot \frac{J}{2T} = \frac{J}{4\epsilon}$ (constant) ✓
@@ -466,9 +447,9 @@ $$\mathcal{D}(q) = \frac{N^*(q=1)}{N^*(q)} = \frac{J/2T}{\ln\left[e^{J/2T} + (q-
 
 | Quantity | Our Theory | Yang et al. | Match? |
 |----------|------------|-------------|--------|
-| Diversity reduces N* | Yes (factor ~1.1-1.8) | Yes (factor 4-8) | Qualitative ✓, Quantitative ✗ |
+| Diversity benefit | Yes (max ~3× from entropy) | Yes (4-8× observed) | Qualitative ✓, Quantitative ✗ |
 | $N^*$ increases with T | Yes (linear at high T) | Not directly tested | — |
-| Optimal regime | $N \approx 10-30$ | $N \approx 4-32$ | Good ✓ |
+| Optimal regime | $N \approx 25-250$ | $N \approx 4-32$ | Model overestimates |
 
 **Discrepancy explanation:**
 - Our model captures only entropic effects

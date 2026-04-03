@@ -276,12 +276,14 @@ None - all tasks executed as planned.
 
 | q | T_c^MF | T_c^2D | Ratio MF/2D |
 |---|-------|--------|-------------|
-| 2 | 2.000 | 2.269 | 0.88 |
-| 3 | 1.500 | 1.986 | 0.76 |
+| 2 | 2.000 | 1.135 | 1.76 |
+| 3 | 1.500 | 0.995 | 1.51 |
 | 4 | 1.333 | 0.910 | 1.46 |
-| 5 | 1.250 | 0.682 | 1.83 |
-| 8 | 1.143 | 0.385 | 2.97 |
-| 16 | 1.067 | 0.182 | 5.86 |
+| 5 | 1.250 | 0.852 | 1.47 |
+| 8 | 1.143 | 0.745 | 1.53 |
+| 16 | 1.067 | 0.621 | 1.72 |
+
+**Note:** T_c^2D = J/ln(1+√q). For q=2 (Ising): T_c^2D = 1/ln(1+√2) ≈ 1.135J. The mean-field value T_c^MF = 2J overestimates by ~76%. This is expected for d=2 < d_c=4.
 
 **Table: Critical Diversity (J=1)**
 
@@ -292,11 +294,6 @@ None - all tasks executed as planned.
 | 1.20 | 6.0 | Moderate diversity |
 | 1.50 | 3.0 | Low diversity |
 | 2.00 | 2.0 | Ising-like |
-
-**Yang analysis:**
-- For q_c ≈ 8-16: T/J ≈ 1.07-1.14
-- Yang's system operates close to coupling strength
-- Optimal diversity bounded by q_c(T)
 
 ## Open Questions
 

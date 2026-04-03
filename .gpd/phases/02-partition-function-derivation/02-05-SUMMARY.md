@@ -75,7 +75,7 @@ conventions:
   - "metric_signature: Euclidean (statistical mechanics)"
   - "fourier_convention: exp(-ikx)"
   - "coupling_convention: H = -J Σ delta(s_i, s_j), J>0"
-  - "coordination_cost: [ε] = [E/N] (CORRECTED from [E/N²])"
+  - "coordination_cost: [ε] = [E] (CORRECTED — N is dimensionless count, so ε has energy dimensions)"
 
 # Canonical contract outcome ledger (required when source PLAN has a contract)
 plan_contract_ref: ".gpd/phases/02-partition-function-derivation/02-05-PLAN.md#/contract"
@@ -202,7 +202,7 @@ completed: 2026-03-20
 ## Key Results
 
 - **All 9 Phase 2 equations:** Dimensionally consistent ✓
-- **Convention correction:** $[\epsilon] = [E/N]$, not $[E/N^2]$
+- **Convention correction:** $[\epsilon] = [E]$ (since N is dimensionless count, not [E/N] or [E/N²])
 - **N→1 limit:** Z = q, F = -T ln q ✓
 - **N→∞ limit:** Extensive F, intensive f ✓
 - **q→1 limit:** Recovers homogeneous baseline ✓
@@ -276,7 +276,7 @@ $$S = \beta U + \ln Z$$
 
 **Eq. (05.05): Free energy with cost**
 $$F_{\text{total}} = -\frac{N}{\beta} \ln[\cdots] + \epsilon N^2$$
-- Dimensions: [F_total] = [E] ✓ (requires $[\epsilon] = [E/N]$)
+- Dimensions: [F_total] = [E] ✓ (requires $[\epsilon] = [E]$ since N is dimensionless)
 
 **Eq. (05.06): Optimal agent count**
 $$N^* = \frac{T}{2\epsilon} \ln\left[e^{J/2T} + (q-1)e^{-J/2T}\right]$$
@@ -310,14 +310,14 @@ $$q_c = \frac{T}{T - J}$$
 ## Decisions & Deviations
 
 **Key decisions:**
-1. **Convention correction:** Changed $[\epsilon]$ from $[E/N^2]$ to $[E/N]$ for dimensional consistency
+1. **Convention correction:** Changed $[\epsilon]$ from $[E/N^2]$ to $[E]$ (N is a dimensionless count, so ε carries pure energy dimensions)
 2. **Yang discrepancy:** Documented as expected (entropy-only baseline), not an error
 3. **Validation approach:** Systematic dimensional analysis + limiting cases + self-consistency
 
 **Deviations from Plan:**
 
 ### Convention Correction (Rule 4 - Missing Component)
-**Issue:** Original convention stated $[\epsilon] = [E/N^2]$ but N* formula requires $[\epsilon] = [E/N]$
+**Issue:** Original convention stated $[\epsilon] = [E/N^2]$ but since N is a dimensionless count, $[\epsilon] = [E]$ is correct
 **Resolution:** Corrected inline with documentation
 **Classification:** Auto-fixed (not escalated)
 
@@ -376,7 +376,7 @@ $$q_c = \frac{T}{T - J}$$
 
 | Quantity | Symbol | Value/Formula | Uncertainty | Source | Valid Range |
 |----------|--------|---------------|-------------|--------|-------------|
-| Coordination cost | ε | Free parameter | Not calibrated | Theory | [E/N] |
+| Coordination cost | ε | Free parameter | Not calibrated | Theory | [E] |
 | T/J ratio | - | 1.07-1.14 (estimated) | From q_c analysis | Yang inference | T > J |
 | Diversity multiplier (entropy) | 𝒟 | 1.2-2× | Exact (theory) | Calculation | All T |
 | Diversity multiplier (total) | - | 4-8× | Measured | Yang data | - |
@@ -395,7 +395,7 @@ None - this plan was purely analytical validation.
 
 ## Decisions Made
 
-1. **Convention correction:** ε has dimensions [E/N], not [E/N²]
+1. **Convention correction:** ε has dimensions [E] (not [E/N²] or [E/N]), since N is a dimensionless count
 2. **Yang discrepancy:** Expected, not an error (entropy-only baseline)
 3. **Validation complete:** All Phase 2 formulas ready for RG analysis
 
@@ -421,7 +421,7 @@ None - this plan was purely analytical validation.
 
 | Convention | Previous | This Phase | Reason |
 |------------|----------|------------|--------|
-| [ε] | [E/N²] (incorrect) | [E/N] | Dimensional consistency |
+| [ε] | [E/N²] (incorrect) | [E] | N is dimensionless count; F_cost = εN² requires [ε] = [E] |
 
 ---
 
