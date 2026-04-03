@@ -6,7 +6,7 @@
   },
   "project_contract": null,
   "position": {
-    "current_phase": "04-ising-agent-simulation",
+    "current_phase": "04",
     "current_phase_name": "Ising-Agent Simulation",
     "total_phases": 10,
     "current_plan": "04-01 (next)",

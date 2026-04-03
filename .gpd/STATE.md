@@ -87,7 +87,25 @@ See: .gpd/PROJECT.md
 | Phase 02-partition-function-derivation | 5 plans | 26 tasks | 20 files |
 | Phase 03-phase-transition-analysis | 2 plans (of 5) | 4 tasks | 6 files |
 
-## Convention Lock
+## Accumulated Context
+
+### Decisions
+
+1. Potts model with mean-field theory chosen as framework (2026-03-16)
+2. Coordination cost F_cost = εN² added for finite N* prediction (2026-03-19)
+3. Yang discrepancy documented: pure entropy gives ~3× max, Yang observes 4-8× (2026-03-19)
+4. ε convention corrected: [ε] = [E] since N is dimensionless count (2026-04-03)
+5. N* interpretation corrected: N* increases with q (diverse systems sustain larger populations) (2026-04-03)
+
+### Active Approximations
+
+- Mean-field approximation: valid for fully-connected topology, O(1/d) corrections for sparse networks
+- Saddle-point approximation: O(1/N) finite-size errors, breaks down at N < 10
+- Gaussian fluctuations: valid away from T_c, O(u) near critical point
+- Epsilon expansion: O(ε²) errors, unreliable for d ≤ 2 (ε ≥ 2)
+- Scalar φ⁴ theory: valid for q=2 (Ising), q>2 requires vector field theory
+
+**Convention Lock:**
 
 - Metric signature: Euclidean (+---)
 - Fourier convention: exp(-ikx) forward, exp(ikx) inverse
@@ -102,13 +120,23 @@ See: .gpd/PROJECT.md
 - Order Parameter: m = (qN_max - N) / [(q-1)N]
 - Coordination cost: F_cost = εN², [ε] = [E]
 
-## Pending Todos
+### Propagated Uncertainties
+
+- ε parameter not empirically calibrated — affects N* magnitude but not scaling
+- T/J ratio estimated from q_c analysis (1.07-1.14), needs direct measurement
+- Mean-field approximation accuracy unknown for N < 50 — requires MC validation (Phase 4)
+
+### Pending Todos
 
 - Phase 4 Plan 04-01: Implement Monte Carlo simulation of agent system on 2D lattice
 - Phase 4 Plan 04-02: Validate against mean-field predictions
 - Phase 4 Plan 04-03: Finite-size scaling analysis
 - Phase 4 Plan 04-04: Compare with Yang et al. empirical data
 - Phase 4 Plan 04-05: Extract J and T_eff from simulation
+
+### Blockers/Concerns
+
+None
 
 ## Session Continuity
 
