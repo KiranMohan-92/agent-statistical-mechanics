@@ -573,7 +573,7 @@ where N_max is the number of agents in the most common state.
 **Novel validation work:**
 - Reproduce Yang et al. result as limiting case of theory
 - Validate against Content Factory production data
-- Test predictions on ING AML systems (38 jurisdictions)
+- Test predictions on public multi-jurisdiction AML benchmark data
 
 ### 5.4 Risks and Unknowns
 

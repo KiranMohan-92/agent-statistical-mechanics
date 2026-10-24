@@ -33,7 +33,7 @@ Requirements for the main research deliverable. Each maps to roadmap phases.
 
 - [ ] **VALD-01**: Reproduce Yang et al. result: 2 diverse ≈ 16 homogeneous (within 10%)
 - [ ] **VALD-02**: Fit Content Factory data to model; achieve R² > 0.8
-- [ ] **VALD-03**: Predict optimal agent count for ING jurisdictions; hit ≥30/38
+- [ ] **VALD-03**: Predict optimal agent count on a public multi-jurisdiction benchmark (target to be re-scoped)
 - [ ] **VALD-04**: Verify dimensional consistency of all derived formulas
 - [ ] **VALD-05**: Check limiting cases: N→1, N→∞, q→1 (homogeneous)
 
@@ -81,7 +81,7 @@ Deferred to future work or follow-up paper.
 | CALC-01 | 4 significant figures | Compare with known Ising results |
 | SIMU-01 | Statistical error < 1% | Bootstrap error estimation |
 | VALD-02 | R² > 0.8 goodness-of-fit | Content Factory data fitting |
-| VALD-03 | ≥30/38 jurisdictions correct | ING deployment data |
+| VALD-03 | Target to be re-scoped | Public benchmark data |
 
 ## Contract Coverage
 
@@ -89,7 +89,7 @@ Deferred to future work or follow-up paper.
 |-----------|-----------------------------|------------------------------|
 | DERV-05 | Formula reproduces Yang et al. result | Yang et al. 2025 (arXiv:2602.03794) |
 | VALD-02 | R² > 0.8 plot | Content Factory production metrics |
-| VALD-03 | Prediction accuracy table | ING AML 38-jurisdiction data |
+| VALD-03 | Prediction accuracy table | Public benchmark data |
 | VALD-04 | Dimensional analysis note | Dimensional consistency check |
 | PAPER-01 | Peer-reviewed publication | Top-tier venue (PRL E, Nature MI, NeurIPS, ICLR, AAMAS) |
 
@@ -112,7 +112,7 @@ Deferred to future work or follow-up paper.
 | SIMU-04 | Phase 4: Ising-Agent Simulation | Pending |
 | VALD-01 | Phase 5: Potts Model Validation | Pending |
 | VALD-02 | Phase 6: Content Factory Analysis | Pending |
-| VALD-03 | Phase 7: ING Systems Analysis | Pending |
+| VALD-03 | Phase 7: Public-Data Validation | Pending |
 | VALD04 | Phase 2: Partition Function Derivation | Pending |
 | VALD-05 | Phase 2: Partition Function Derivation | Pending |
 | ANAL-01 | Phase 8: Predictive Framework | Pending |

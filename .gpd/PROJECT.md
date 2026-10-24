@@ -21,7 +21,7 @@ A physics research project applying statistical mechanics (Ising/Potts models, p
 - **User-stated observables**: Critical agent density ρ_c, diversity threshold q*, correlation length ξ
 - **User-stated deliverables**: Closed-form N* formula, phase transition diagrams, validation plots
 - **Must-have references**: Yang et al. (2025) "Understanding Agent Scaling in LLM-Based Multi-Agent Systems via Diversity"
-- **Stop/rethink conditions**: If model fails R² > 0.8 on Content Factory data or fails to predict ≥30/38 ING jurisdictions
+- **Stop/rethink conditions**: If model fails R² > 0.8 on Content Factory data or fails the public-data validation target (to be re-scoped)
 
 ### Scope Boundaries
 
@@ -29,7 +29,7 @@ A physics research project applying statistical mechanics (Ising/Potts models, p
 - Statistical mechanics formalism applied to LLM agent systems
 - Partition function derivation for N-agent systems
 - Ising/Potts model simulations
-- Validation against Content Factory and ING AML production data
+- Validation against public datasets and publicly released Content Factory metrics (no employer data)
 - First-principles derivation of optimal agent scaling
 
 **Out of scope**
@@ -48,7 +48,7 @@ A physics research project applying statistical mechanics (Ising/Potts models, p
 ### Carry-Forward Inputs
 
 - Content Factory production metrics (tasks completed, agent diversity, collaboration patterns)
-- ING AML system data from 38 jurisdictions
+- Public multi-jurisdiction AML/fraud benchmark data (to be selected)
 - Phase structure from AGENT-STATISTICAL-MECHANICS-PLAN.md
 
 ### Skeptical Review
@@ -132,7 +132,7 @@ Rationale: PRL E publishes statistical mechanics breakthroughs; Nature MI and ML
 - Local workstation for derivations (Jupyter, Python)
 - Optional: Cloud/cluster for large-scale simulations
 - Content Factory: Production multi-agent system for validation
-- ING AML systems: 38-jurisdiction deployment data
+- Public AML/fraud benchmark data (multi-jurisdiction, to be selected)
 
 ## Notation and Conventions
 
@@ -156,7 +156,7 @@ Mirror of contract-critical anchors only:
 
 ## Constraints
 
-- **Data access**: Content Factory and ING data require proper sanitization (38 jurisdictions, production systems)
+- **Data access**: public datasets and publicly released Content Factory metrics only; no employer data is used
 - **Computational**: Large-scale simulations (Monte Carlo) may require cluster resources
 - **Timeline**: 16-week target for first paper submission
 

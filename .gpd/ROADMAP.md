@@ -2,7 +2,7 @@
 
 ## Overview
 
-Derive first-principles limits on optimal agent scaling in LLM-based multi-agent systems using statistical mechanics (partition functions, Ising/Potts models, renormalization group). Validate against production data from Content Factory and ING AML systems across 38 jurisdictions.
+Derive first-principles limits on optimal agent scaling in LLM-based multi-agent systems using statistical mechanics (partition functions, Ising/Potts models, renormalization group). Validate against public datasets and publicly released Content Factory metrics (no employer data).
 
 ## Phases
 
@@ -12,7 +12,7 @@ Derive first-principles limits on optimal agent scaling in LLM-based multi-agent
 - [ ] **Phase 4: Ising-Agent Simulation** - Monte Carlo on 2D lattice, correlation analysis
 - [ ] **Phase 5: Potts Model Validation** - Agent diversity simulations, compare to Yang et al.
 - [ ] **Phase 6: Content Factory Analysis** - Fit model to production data, extract T_eff, ρ_c
-- [ ] **Phase 7: ING Systems Validation** - Test predictions against 38-jurisdiction data
+- [ ] **Phase 7: Public-Data Validation** - Test predictions against public multi-jurisdiction benchmark data
 - [ ] **Phase 8: Predictive Framework** - N* = f(H,q,T) formula, decision tree
 - [ ] **Phase 9: Paper Writing** - Manuscript, figures, submission
 - [ ] **Phase 10: Open Source Release** - Code package, tutorials, blog post
@@ -198,7 +198,7 @@ Derive first-principles limits on optimal agent scaling in LLM-based multi-agent
 
 **Contract Coverage:**
 - Validates VALD-03 (real-world prediction requirement)
-- **Note:** Uses publicly available data only (no proprietary ING data)
+- **Note:** Uses publicly available data only (no proprietary employer data)
 
 ---
 
@@ -294,7 +294,7 @@ Derive first-principles limits on optimal agent scaling in LLM-based multi-agent
 | 4. Ising-Agent Simulation | 5/5 | Not started | - |
 | 5. Potts Model Validation | 4/4 | Not started | - |
 | 6. Content Factory Analysis | 4/4 | Not started | - |
-| 7. ING Systems Validation | 4/4 | Not started | - |
+| 7. Public-Data Validation | 4/4 | Not started | - |
 | 8. Predictive Framework | 4/4 | Not started | - |
 | 9. Paper Writing | 7/7 | Not started | - |
 | 10. Open Source Release | 5/5 | Not started | - |

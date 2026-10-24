@@ -157,7 +157,7 @@ Phase 1 established the theoretical and empirical foundation for deriving a part
 - **LLM diversity → discrete q mapping** with operational definitions
 - **T_eff calibration** for LLM systems
 - **Yang result as limiting case** of general theory
-- **Content Factory & ING validation** against production data
+- **Content Factory & public-data validation**
 
 ### 5.4 Risks and Mitigations
 
