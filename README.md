@@ -24,3 +24,12 @@ Validation will use public datasets and publicly released Content Factory metric
 | `code/` | Code |
 | `results/` | Outputs |
 | `figures/` | Figures |
+
+## License
+
+- **Code** (`code/` and any other source files) is licensed under the
+  [MIT License](LICENSE).
+- **Derivations, analysis, results, figures and research notes** (Markdown,
+  LaTeX and image files, including `.gpd/`) are licensed under
+  [CC BY 4.0](LICENSE-CC-BY-4.0). Reuse them freely with credit to
+  Kiran Mohan.
